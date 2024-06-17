@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Phrase from "./Phrase";
 import axios from "axios";
 
@@ -9,9 +9,6 @@ const PhraseGenerator = () => {
 
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    getRandomPhrase();
-  }, []);
 
   const getRandomPhrase = async () => {
     try {
