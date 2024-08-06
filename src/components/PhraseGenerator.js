@@ -1,45 +1,8 @@
 import React, { useState } from "react";
 import Phrase from "./Phrase";
-import axios from "axios";
 
 const PhraseGenerator = () => {
-  const [phrase, setPhrase] = useState({ content: "", author: "" });
-
-  const [loading, setLoading] = useState(false);
-
-  const [error, setError] = useState(null);
-
-
-  const getRandomPhrase = async () => {
-    try {
-      setLoading(true);
-      const response = await axios.get("https://api.quotable.io/random");
-      const data = response.data;
-      setPhrase({
-        content: data.content,
-        author: data.author,
-      });
-    } catch (error) {
-      setError("Erro ao buscar a frase");
-      console.error("Erro ao buscar a frase:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  if (loading) {
-    return (
-      <div className="min-h-20">
-        <p className="text-lg">Loading...</p>
-      </div>
-    );
-  }
-
-  if (error) {
-    <div className="min-h-20">
-      <p className="text-lg">{error}</p>
-    </div>;
-  }
+  const [phrase, setPhrase] = useState({ content: "Suspeitei desde o início", author: "Chapolin Colorado" });
 
   return (
     <div className="min-h-20 flex flex-col gap-4 items-start">
