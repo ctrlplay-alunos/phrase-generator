@@ -3,7 +3,7 @@ import axios from "axios";
 
 const Users = () => {
   const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -12,9 +12,11 @@ const Users = () => {
       .get("https://jsonplaceholder.typicode.com/users")
       .then((response) => {
         setUsers(response.data);
+        useState(false);
       })
       .catch((error) => {
         setError(error.message);
+        useState(false);
       });
   }, []);
 
